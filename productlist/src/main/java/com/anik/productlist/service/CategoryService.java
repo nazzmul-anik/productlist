@@ -8,6 +8,8 @@ import com.anik.productlist.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -29,5 +31,18 @@ public class CategoryService {
                 .map(CategoryMapper::toCategoryDTO)
                 .toList();
         return categoryDTOList;
+    }
+
+    // Get Category by Id
+    public CategoryDTO getCategoryById(Long id){
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Category Not Found"));
+        return CategoryMapper.toCategoryDTO(category);
+    }
+
+    // Delete Category
+    public String deleteCategory(Long id){
+        categoryRepository.deleteById(id);
+        return "Category "+id+" has been deleted.";
     }
 }

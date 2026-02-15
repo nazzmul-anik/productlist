@@ -28,4 +28,16 @@ public class CategoryController {
     public List<CategoryDTO> getAllCategories(){
         return categoryService.getAllCategories();
     }
+
+    // Get Category by id
+    @GetMapping("/{id}")
+    public CategoryDTO getCategoryById(@PathVariable Long id){
+        return categoryService.getCategoryById(id);
+    }
+
+    // Delete Category
+    @DeleteMapping("/{id}")
+    public String deleteCategory(@PathVariable Long id){
+        return categoryService.deleteCategory(id);
+    }
 }
