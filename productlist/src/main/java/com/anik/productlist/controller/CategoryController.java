@@ -2,6 +2,7 @@ package com.anik.productlist.controller;
 
 import com.anik.productlist.dto.CategoryDTO;
 import com.anik.productlist.entity.Category;
+import com.anik.productlist.exception.CategoryExistsException;
 import com.anik.productlist.service.CategoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
