@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,14 +27,9 @@ public class CategoryController {
     private CategoryService categoryService;
 
     // Create Category
-    @Operation(
-            summary = "Create Category",
-            description = "REST API to Create Category"
-    )
-    @ApiResponse(
-            responseCode = "201",
-            description = "CREATED"
-    )
+    @Operation(summary = "Create Category", description = "REST API to Create Category")
+    @ApiResponse(responseCode = "201", description = "CREATED")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO categoryDTO){
         return new ResponseEntity<>(categoryService.createCategory(categoryDTO), HttpStatus.CREATED);
@@ -64,6 +60,7 @@ public class CategoryController {
             summary = "Delete Category by Id",
             description = "REST API to delete category by Id."
     )
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @DeleteMapping("/{id}")
     public String deleteCategory(@PathVariable Long id){
         return categoryService.deleteCategory(id);
