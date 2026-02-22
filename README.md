@@ -1,6 +1,6 @@
 # 📌 Project Purpose
 
-**The main goal of this project is to maintain a standard and clean backend architecture with:**
+**The main goal of this project is to maintain a standard, scalable, and secure backend architecture with JWT-based authentication and Spring Security integration:**
 
 Proper layered structure
 
@@ -16,7 +16,7 @@ Global exception management
 
 Swagger API documentation
 
-Future-ready structure for Spring Security integration
+Stateless authentication and authorization using Spring Security and JWT
 
 # 📦 Features
 **Product Module**
@@ -49,6 +49,10 @@ Java 25
 
 Spring Boot 4
 
+Spring Security
+
+JWT (JSON Web Token)
+
 Spring Data JPA
 
 MySQL
@@ -58,6 +62,29 @@ Swagger / OpenAPI (springdoc)
 Lombok
 
 Maven
+
+# 🔐 Security Implementation (Spring Security + JWT)
+
+This project is secured using Spring Security with JWT (JSON Web Token) authentication to ensure stateless and secure API access.
+
+✅ Security Features
+
+Stateless Authentication (No Session)
+
+JWT-based Login System
+
+Secure Password Encoding (BCrypt)
+
+Custom Authentication Filter
+
+Role-based Authorization Ready Structure
+
+Protected API Endpoints
+
+Custom Authentication & Authorization Exception Handling
+
+Future-ready for OAuth2 integration
+
 
 # 🧾 Swagger API Documentation
 
